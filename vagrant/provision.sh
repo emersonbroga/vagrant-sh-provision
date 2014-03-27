@@ -17,11 +17,7 @@ apt-get -q -y install mysql-server
 
 # set the mysql root password to root
 echo "===Set Mysql root password...==="
-if [ -e "/home/vagrant/" ]; then
-    rm /etc/apache2/sites-available/${SITE_DOMAIN}.conf
-else 
-    mysqladmin -u root password root
-fi
+mysqladmin -u root password root
 
 
 
@@ -71,9 +67,6 @@ else
     echo "===Enable site...==="
     a2dissite /etc/apache2/sites-available/default
     a2ensite /etc/apache2/sites-available/${SITE_DOMAIN}.conf
-
-     /etc/apache2/apache2.conf 
-ServerName localhost
 fi
 
 echo "===Enable vhost==="
